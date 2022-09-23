@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import Foundation
+
+public protocol DTO: Codable, CustomStringConvertible, Hashable {
+    
+}
+
+extension Array: DTO where Element: DTO
+{
+    
+}
