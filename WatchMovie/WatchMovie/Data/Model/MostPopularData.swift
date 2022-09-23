@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MostPopularData: DTO {
+public struct MostPopularData: DTO {
     public var items: [MostPopularDataDetail]
 
     public var errorMessage: String

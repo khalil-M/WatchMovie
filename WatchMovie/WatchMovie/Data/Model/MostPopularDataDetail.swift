@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MostPopularDataDetail: DTO {
+public struct MostPopularDataDetail: DTO {
     
     public var id:                       String
     public var rank:                     String
