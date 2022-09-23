@@ -17,6 +17,20 @@ class MoieDependencies {
     
     static let shared = MoieDependencies()
     
+  
+    private var client: HTTPClient = {
+        return URLSessionHTTPClient(session: URLSession.shared)
+    }()
+    
+    private lazy var service: AppServiceProtocol = {
+        let apiKey = "k_4olf5ls3" //"k_a1ew4rr2"//"k_4olf5ls3"
+        return MovieApiService(baseURL: URL(string: "https://imdb-api.com")!, client: client, apiKey: apiKey)
+    }()
+    
+    private lazy var manager: AppManagerProtocol = {
+        return AppManager(service: service)
+    }()
+    
     public func setScene(_ scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
@@ -34,14 +48,23 @@ class MoieDependencies {
         let isLoggedIn:Bool = true
         
         if isLoggedIn {
-            setRootViewController(ViewController())
+            setRootViewController(makeHomeViewController())
         } else {
-            setRootViewController(ViewController())
+            setRootViewController(makeHomeViewController())
         }
     }
 
-    
-    
+    func makeHomeViewController() -> UIViewController {
+        let viewModel = HomeViewControllerViewModel(manager: manager)
+        let viewController = HomViewController(viewModel: viewModel)
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.title = "Home"
+        navigationController.tabBarItem.image = UIImage(systemName: "house")
+//        return navigationController
+
+        return viewController
+    }
     
     
 }
