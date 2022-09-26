@@ -1,0 +1,6 @@
+framework module Pods_WatchMovie_WatchMovieUITests {
+  umbrella header "Pods-WatchMovie-WatchMovieUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
