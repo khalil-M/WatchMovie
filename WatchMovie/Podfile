@@ -5,7 +5,9 @@ target 'WatchMovie' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for WatchMovie
+  pod 'Swinject'
+  pod 'SwinjectAutoregistration'
+  pod 'SwinjectStoryboard'
 
   target 'WatchMovieTests' do
     inherit! :search_paths

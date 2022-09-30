@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../WatchMovieWithSwinject/WatchMovieWithSwinject.xcodeproj">
+      location = "group:../../../WatchMovieSwInject/WatchMovieSwInject.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WatchMovie.xcodeproj">
