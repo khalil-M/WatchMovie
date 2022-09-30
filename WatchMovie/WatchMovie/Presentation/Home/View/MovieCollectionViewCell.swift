@@ -48,7 +48,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
         label.sizeToFit()
     }
     
-    
+    func configure(with viewModel: MovieCollectionViewCellViewModel) {
+        label.text = viewModel.title
+        guard let url = viewModel.artworkURL else { return }
+        
+        do {
+            if let cachedImage = try OnDiskImageCaching.publicCache.image(url: url) {
+                DispatchQueue.main.async {
+                    self.imageView.image = cachedImage
+                }
+                return
+            }
+        } catch {
+            
+        }
+        task = imageView.downloadImage(fromURL: url)
+    }
     
     
 }
