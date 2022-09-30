@@ -29,6 +29,7 @@
 		8280F75628DDC38700010202 /* AppManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8280F75528DDC38700010202 /* AppManagerProtocol.swift */; };
 		8280F75A28DDC83600010202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8280F75928DDC83600010202 /* HomeViewController.swift */; };
 		8280F75D28DDC86100010202 /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8280F75C28DDC86100010202 /* HomeViewControllerViewModel.swift */; };
+		82ACB09528E731F9004FA32E /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ACB09428E731F9004FA32E /* MovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		8280F75528DDC38700010202 /* AppManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManagerProtocol.swift; sourceTree = "<group>"; };
 		8280F75928DDC83600010202 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8280F75C28DDC86100010202 /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		82ACB09428E731F9004FA32E /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		8992D454A88C3BD871ABFC3C /* Pods-WatchMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMovie.debug.xcconfig"; path = "Target Support Files/Pods-WatchMovie/Pods-WatchMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		B311FF61CB03880D4369D2C5 /* Pods-WatchMovieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMovieTests.release.xcconfig"; path = "Target Support Files/Pods-WatchMovieTests/Pods-WatchMovieTests.release.xcconfig"; sourceTree = "<group>"; };
 		D86C2CDA3DCFB070CB24D78C /* Pods_WatchMovie_WatchMovieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMovie_WatchMovieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				8280F75928DDC83600010202 /* HomeViewController.swift */,
+				82ACB09428E731F9004FA32E /* MovieCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,7 +283,6 @@
 				8280F70528DD9C7900010202 /* Sources */,
 				8280F70628DD9C7900010202 /* Frameworks */,
 				8280F70728DD9C7900010202 /* Resources */,
-				F37181B440D26EBC29D3C20D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,7 +320,6 @@
 				8280F72528DD9C7D00010202 /* Sources */,
 				8280F72628DD9C7D00010202 /* Frameworks */,
 				8280F72728DD9C7D00010202 /* Resources */,
-				C7FA13B97F41B4AA8587F7A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -444,23 +445,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C7FA13B97F41B4AA8587F7A0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchMovie-WatchMovieUITests/Pods-WatchMovie-WatchMovieUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchMovie-WatchMovieUITests/Pods-WatchMovie-WatchMovieUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchMovie-WatchMovieUITests/Pods-WatchMovie-WatchMovieUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E9B0C93A17F63EC96D502108 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,23 +467,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F37181B440D26EBC29D3C20D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchMovie/Pods-WatchMovie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WatchMovie/Pods-WatchMovie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchMovie/Pods-WatchMovie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -519,6 +486,7 @@
 				8280F74828DDB53100010202 /* MovieDependencies.swift in Sources */,
 				8280F75628DDC38700010202 /* AppManagerProtocol.swift in Sources */,
 				8280F70F28DD9C7900010202 /* SceneDelegate.swift in Sources */,
+				82ACB09528E731F9004FA32E /* MovieCollectionViewCell.swift in Sources */,
 				8280F75D28DDC86100010202 /* HomeViewControllerViewModel.swift in Sources */,
 				8280F75328DDBE6B00010202 /* AppServiceProtocol.swift in Sources */,
 			);
