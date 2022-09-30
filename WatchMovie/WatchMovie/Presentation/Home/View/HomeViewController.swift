@@ -12,6 +12,9 @@ class HomViewController: UIViewController{
     
     let viewModel: HomeViewControllerViewModel
     
+    let headerTitles = ["Most Popular Movies",
+                        "Most Popular Tvs"
+                        ]
     init(viewModel: HomeViewControllerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -29,15 +32,97 @@ class HomViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemBackground
+        viewModel.reloadCollectionView = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+        configureCollectionView()
         viewModel.getData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
+//        setCollectionViewLayout(collectionView: collectionView)
+    }
+
+    
+    
+}
+
+// MARK: Collection View configuration methods
+
+extension HomViewController {
+    
+    private func configureCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+        collectionView.register(TitleHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeaderCollectionReusableView.identifier)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    private func setCollectionViewLayout(collectionView: UICollectionView) {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.minimumLineSpacing = 10
+            layout.minimumInteritemSpacing = 10
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+            let size = CGSize(width:(collectionView.bounds.width-30)/2, height: 250)
+            layout.itemSize = size
+            
+        }
+    }
+}
+
+// MARK: Collection View Delegate & Data Source methods
+extension HomViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return headerTitles.count
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfItemsInSection(section: section)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        guard let movie = viewModel.getMovieForIndexPath(indexPath: indexPath) else {
+            return UICollectionViewCell()
+        }
+        let url = URL(string: movie.image)
+        let convertedUrl = indexPath.section == 0 ? url?.convertToImdbImage192x264Url() : url?.convertToImdbImage384x528Url()
+        let model = MovieCollectionViewCellViewModel(title: movie.title, artworkURL: convertedUrl)
+        cell.configure(with: model)
+        cell.backgroundColor = .lightGray
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: TitleHeaderCollectionReusableView.identifier,
+                for: indexPath
+        ) as? TitleHeaderCollectionReusableView, kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
+        let section = indexPath.section
+        let title = headerTitles[section]
+        header.configure(with: title)
+        return header
     }
     
     
 }
 
+
 extension HomViewController {
-    private static func createSectionLayout(section: sectionIndex) -> NSCollectionLayoutSection {
+    private static func createSectionLayout(section: Int) -> NSCollectionLayoutSection {
         
         let supplementaryViews = [
             NSCollectionLayoutBoundarySupplementaryItem(
