@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct MovieCollectionViewCellViewModel {
+    let title: String
+    let artworkURL: URL?
+}
