@@ -48,10 +48,21 @@ class MoieDependencies {
         let isLoggedIn:Bool = true
         
         if isLoggedIn {
-            setRootViewController(makeHomeViewController())
+            setRootViewController(makeMainTabBarController(manager: manager))
         } else {
-            setRootViewController(makeHomeViewController())
+            
         }
+    }
+    
+    // MARK: - Tab Bar Controller
+    
+    private func makeMainTabBarController(manager: AppManagerProtocol) -> UIViewController {
+        
+        let homeVC = makeHomeViewController()
+        
+        let tabController = MainTabBarController(
+            viewControllers: [homeVC])
+        return tabController
     }
 
     func makeHomeViewController() -> UIViewController {
@@ -61,9 +72,9 @@ class MoieDependencies {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.title = "Home"
         navigationController.tabBarItem.image = UIImage(systemName: "house")
-//        return navigationController
+        
 
-        return viewController
+        return navigationController
     }
     
     
