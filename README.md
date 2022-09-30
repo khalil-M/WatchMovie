@@ -18,7 +18,7 @@ A strategic project that makes the use of "Dependency Ijection"
         khalil.mhelheli@gmail.com
     
 * website, online documentation
-    https:inProgressWith.VaporSwift.com
+    https://inProgressWith.VaporSwift.com
     
     
 *
