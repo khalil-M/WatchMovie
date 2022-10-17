@@ -17,7 +17,7 @@ class MoieDependencies {
     
     static let shared = MoieDependencies()
     
-  
+    
     private var client: HTTPClient = {
         return URLSessionHTTPClient(session: URLSession.shared)
     }()
@@ -64,17 +64,26 @@ class MoieDependencies {
             viewControllers: [homeVC])
         return tabController
     }
-
+    
     func makeHomeViewController() -> UIViewController {
         let viewModel = HomeViewControllerViewModel(manager: manager)
-        let viewController = HomViewController(viewModel: viewModel)
+        let router = HomeViewRouter()
+        let viewController = HomViewController(viewModel: viewModel, router: router)
+        
         
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.title = "Home"
         navigationController.tabBarItem.image = UIImage(systemName: "house")
+        router.navigationController = navigationController
         
-
         return navigationController
+    }
+    
+    func makeMovieDetailsViewController(for movieId: String) -> UIViewController {
+        let viewModel = MovieDetailsViewControllerViewModel(id: movieId, manager: manager)
+        let viewController = MovieDetailsViewController(viewModel: viewModel)
+        viewModel.delegate = viewController
+        return viewController
     }
     
     

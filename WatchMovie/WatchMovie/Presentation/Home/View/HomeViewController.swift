@@ -15,8 +15,12 @@ class HomViewController: UIViewController{
     let headerTitles = ["Most Popular Movies",
                         "Most Popular Tvs"
                         ]
-    init(viewModel: HomeViewControllerViewModel) {
+    
+    let router: HomeViewRouter
+    
+    init(viewModel: HomeViewControllerViewModel, router: HomeViewRouter) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -101,6 +105,13 @@ extension HomViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.configure(with: model)
         cell.backgroundColor = .lightGray
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        guard let movie = viewModel.getMovieForIndexPath(indexPath: indexPath) else { return }
+        router.rootToMoviesDetails(for: movie)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

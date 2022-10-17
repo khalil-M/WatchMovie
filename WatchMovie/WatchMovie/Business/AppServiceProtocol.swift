@@ -15,6 +15,9 @@ public protocol AppServiceProtocol {
     // MARK: - Browse
     func getMostPopularMovies(completion: @escaping (Swift.Result<MostPopularData, ServiveError>) -> Void)
     func getMostPopularTvs(completion: @escaping (Swift.Result<MostPopularData, ServiveError>) -> Void)
+    
+    // MARK: - Title
+    func getTitle(for id: String, completion: @escaping (Swift.Result<TitleData, ServiveError>)-> Void )
 }
 
 public class MovieApiService: AppServiceProtocol {
@@ -44,6 +47,15 @@ public class MovieApiService: AppServiceProtocol {
             completion(GenericDecoder.decodeResult(result: result))
         }
     }
+    
+    public func getTitle(for id: String, completion: @escaping (Result<TitleData, ServiveError>) -> Void) {
+        let url = baseURL.appendingPathComponent("API/Title").appendingPathComponent(apiKey).appendingPathComponent(id)
+        client.makeRequest(toURL: url, withHttpMethod: .get) { [weak self] result in
+            guard self != nil else {return}
+            completion(GenericDecoder.decodeResult(result: result))
+        }
+    }
+    
     
     
 }
