@@ -99,7 +99,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
             self.title = self.viewModel.getTitle()
             self.titleLabel.text = self.viewModel.getTitle()
             self.descriptionLabel.text = self.viewModel.getTitle()
-            self.crewLabel.text = "-"//viewModel.getCrew()
+            self.crewLabel.text = ""//viewModel.getCrew()
             guard let imageURL = self.viewModel.getImageUrl() else {
                 self.imageView.image = UIImage(systemName: "film")
                 return

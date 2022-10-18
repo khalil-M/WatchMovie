@@ -45,5 +45,13 @@ The project is a simple Xcode and makes  use of the IMDB APi and use of Appel's 
   Every module has its own building:
 
         - When running WatchMovieSwInject solution, switch to WatchMovieSwInject scheme.
-        
+
         - When running WatchMovie solution, switch to WatchMovie scheme.
+
+  The modules are independent of each other:
+
+        - The changes in WatchMovieSwInject will not affect the WatchMovie .
+        
+        - If you are intesrested in studying the composition with Swinject , have a look at the "AppDelegate" on WatchMovieSwInject.
+
+        - If you are interested in studying the composition with manuel DI of WatchMovie, have a look at the "CompositonRoot" folder on WatchMovie
