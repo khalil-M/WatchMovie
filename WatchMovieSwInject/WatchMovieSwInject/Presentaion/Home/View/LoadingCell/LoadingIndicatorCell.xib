@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LoadingIndicatorCell" id="gTV-IL-0wX" customClass="LoadingIndicatorCell" customModule="WatchMovieSwInject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="140" height="114"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xw-5r-KmB">
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="114"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wnj-M8-TpZ">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="114"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-Td-rGD">
+                                        <rect key="frame" x="60" y="47" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="UjM-Td-rGD" firstAttribute="centerX" secondItem="Wnj-M8-TpZ" secondAttribute="centerX" id="12n-aJ-Ggf"/>
+                                    <constraint firstItem="UjM-Td-rGD" firstAttribute="centerY" secondItem="Wnj-M8-TpZ" secondAttribute="centerY" id="wsq-ie-J93"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Wnj-M8-TpZ" secondAttribute="trailing" id="O0b-ny-CHG"/>
+                            <constraint firstAttribute="bottom" secondItem="Wnj-M8-TpZ" secondAttribute="bottom" id="PCf-Tb-ADu"/>
+                            <constraint firstItem="Wnj-M8-TpZ" firstAttribute="leading" secondItem="9Xw-5r-KmB" secondAttribute="leading" id="U0D-5Y-EBq"/>
+                            <constraint firstItem="Wnj-M8-TpZ" firstAttribute="top" secondItem="9Xw-5r-KmB" secondAttribute="top" id="hVn-ts-lg4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="9Xw-5r-KmB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ah6-pw-phc"/>
+                <constraint firstItem="9Xw-5r-KmB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BLr-3R-rv8"/>
+                <constraint firstAttribute="bottom" secondItem="9Xw-5r-KmB" secondAttribute="bottom" id="Kio-b1-eKd"/>
+                <constraint firstAttribute="trailing" secondItem="9Xw-5r-KmB" secondAttribute="trailing" id="iPj-8t-UZi"/>
+            </constraints>
+            <connections>
+                <outlet property="containerView" destination="Wnj-M8-TpZ" id="j2v-YA-RYY"/>
+                <outlet property="loadingIndicator" destination="UjM-Td-rGD" id="Jgz-YC-ZiA"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="57.589285714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
