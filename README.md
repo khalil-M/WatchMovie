@@ -33,12 +33,17 @@ The project is a simple Xcode and makes  use of the IMDB APi and use of Appel's 
 
   The App was mainly developed using iPhone 13 Pro as device reference and tested both on the simulator as well on a (iPhone X) physical device.
 
-*
+
 ## Instructions
 
   The project is separated into two modules:
+
         - WatchMovieSwInject: Contains the implementation of the Swinject 
+
         - WatchMovie: Contains the manuel implementation of Dependecy injection
+
   Every module has its own building:
+
         - When running WatchMovieSwInject solution, switch to WatchMovieSwInject scheme.
+        
         - When running WatchMovie solution, switch to WatchMovie scheme.
