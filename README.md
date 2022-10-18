@@ -55,3 +55,9 @@ The project is a simple Xcode and makes  use of the IMDB APi and use of Appel's 
         - If you are intesrested in studying the composition with Swinject , have a look at the "AppDelegate" on WatchMovieSwInject.
 
         - If you are interested in studying the composition with manuel DI of WatchMovie, have a look at the "CompositonRoot" folder on WatchMovie
+
+## Design
+
+       - It is not intended to show a professional design, but a developer should have rudamentary design knowledge 
+
+       I implemented compositionLayout for collectionView on the WatchMovie Module
