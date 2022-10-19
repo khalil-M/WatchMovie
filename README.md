@@ -1,5 +1,5 @@
 # DependencyInjection_iOS
-A strategic project that makes the use of "Dependency Ijection"
+A strategic project that makes the use of "Dependency Injection"
 
 ## Table of contents
 
