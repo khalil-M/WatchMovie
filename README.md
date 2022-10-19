@@ -11,8 +11,8 @@ A strategic project that makes the use of "Dependency Ijection"
 * List the project maintainers and contact info:
 
     - Khalil Mhelheli
-        - SOC Analyst (prvious job)
-        - Embedded system developer (prvious job)
+        - SOC Analyst (previous job)
+        - Embedded system developer (previous job)
         - iOS Developer (current job)
     
         Gabes, Tunisia
